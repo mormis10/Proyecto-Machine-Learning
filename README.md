@@ -1,7 +1,7 @@
 # Proyecto-Machine-Learning
 Proyecto del Curso Machine Learning UCR
 
-## To install environment and depedencys to run the project:
+## Installing the Environment and Dependencies to Run the Project
 
 python -m venv .venv
 .venv\Scripts\activate          # en Windows
