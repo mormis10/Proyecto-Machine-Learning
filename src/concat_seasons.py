@@ -34,7 +34,12 @@ for p in sorted(RAW.glob("season-*.csv")):
     df.insert(1, "SeasonStart", start)
     frames.append(df)
 
-matches = pd.concat(frames, ignore_index=True).sort_values("SeasonStart", kind="stable")
+matches = (
+    pd.concat(frames, ignore_index=True)
+    .sort_values(["Date", "HomeTeam"], kind="stable")
+    .reset_index(drop=True)
+)
+
 INTERIM.mkdir(parents=True, exist_ok=True)
 matches.to_parquet(INTERIM / "matches_concat.parquet", index=False)
 print(matches.groupby("Season").size())
