@@ -4,6 +4,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 CLEAN = ROOT / "data/interim/matches_clean.parquet"
+TRAIN_START = 2000   # 93/94-99/00
 
 
 def to_long(m):

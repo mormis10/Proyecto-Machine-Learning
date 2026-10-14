@@ -1,6 +1,6 @@
 import pytest
 from features import compute_elo
-
+from features import TRAIN_START
 
 @pytest.fixture(scope="module")
 def elo(m):
@@ -30,3 +30,10 @@ def test_sin_fuga(m, elo):
     elo2 = compute_elo(m2).set_index("match_id")
     assert elo.loc[:k].equals(elo2.loc[:k])          # hasta k inclusive: idéntico
     assert not elo.loc[k + 1:].equals(elo2.loc[k + 1:])  # después sí cambia
+
+
+def test_burn_in_aplicado(m, elo):
+    j = m.reset_index(drop=True).join(elo)
+    primera = j[j["SeasonStart"] == TRAIN_START].head(10)
+    assert (primera[["elo_home", "elo_away"]] != 1500).any().any()
+    assert primera["elo_home"].std() > 30

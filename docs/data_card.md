@@ -25,3 +25,10 @@ de conseguirse, solo como benchmark externo.
   aprender del rendimiento de los equipos.
 - Uso posible a futuro: benchmark externo ("¿el modelo le gana al mercado?"),
   descargándolas de football-data.co.uk.
+
+## Burn-in
+Las temporadas 1993/94–1999/00 se usan solo para inicializar el Elo y la forma
+reciente; no entran a entrenamiento ni evaluación. En 1993/94 la dispersión del
+Elo es 44 puntos y el favorito gana 49%; desde ~1999/00 se estabiliza (≈73, 60%).
+Regla: las features se calculan sobre todas las temporadas y se filtra al final
+(`TRAIN_START = 2000`).
