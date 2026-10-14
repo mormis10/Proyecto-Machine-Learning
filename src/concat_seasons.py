@@ -41,5 +41,5 @@ matches = (
 )
 
 INTERIM.mkdir(parents=True, exist_ok=True)
-matches.to_parquet(INTERIM / "matches_concat.parquet", index=False)
+matches.to_parquet(INTERIM / "matches_clean.parquet", index=False)
 print(matches.groupby("Season").size())

@@ -4,12 +4,12 @@ import pandas as pd
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data/interim/matches_concat.parquet"
+CLEAN = ROOT / "data/interim/matches_clean.parquet"
 
 
 @pytest.fixture(scope="module")
 def m():
-    return pd.read_parquet(DATA)
+    return pd.read_parquet(CLEAN)
 
 
 def test_partidos_por_temporada(m):

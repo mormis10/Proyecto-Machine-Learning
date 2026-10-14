@@ -2,10 +2,10 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
-DATA = ROOT / "data/interim/matches_concat.parquet"
+CLEAN = ROOT / "data/interim/matches_clean.parquet"
 
 def test_partidos_por_equipo():
-    m = pd.read_parquet(DATA)
+    m = pd.read_parquet(CLEAN)
     largo = pd.concat([
         m[["Season", "HomeTeam"]].rename(columns={"HomeTeam": "Team"}),
         m[["Season", "AwayTeam"]].rename(columns={"AwayTeam": "Team"}),
