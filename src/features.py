@@ -6,6 +6,8 @@ ROOT = Path(__file__).resolve().parent.parent
 CLEAN = ROOT / "data/interim/matches_clean.parquet"
 TRAIN_START = 2000   # 93/94-99/00
 
+SHOT_COLS = ["shots_for", "shots_against", "sot_for", "sot_against"]
+
 
 def to_long(m):
     """Un partido -> dos filas, una por equipo, desde su perspectiva."""
@@ -91,6 +93,13 @@ def add_form(long):
     venue = rolling_prev(long, ["team", "is_home"], FORM_COLS)
     long[[f"form_{c}" for c in FORM_COLS]] = overall.to_numpy()
     long[[f"form_venue_{c}" for c in FORM_COLS]] = venue.to_numpy()
+    return long
+
+
+def add_shots(long):
+    long = long.copy()
+    rolled = rolling_prev(long, "team", SHOT_COLS)
+    long[[f"roll_{c}" for c in SHOT_COLS]] = rolled.to_numpy()
     return long
 
 
