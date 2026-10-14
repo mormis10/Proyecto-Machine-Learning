@@ -74,6 +74,25 @@ def compute_elo(m):
         "elo_diff": elo_home - elo_away,
     })
 
+FORM_WINDOW = 5
+FORM_COLS = ["points", "gf", "ga"]
+
+
+def rolling_prev(long, by, cols, window=FORM_WINDOW):
+    """Promedio de los últimos `window` partidos ANTERIORES de cada grupo."""
+    return long.groupby(by)[cols].transform(
+        lambda s: s.shift(1).rolling(window, min_periods=1).mean()
+    )
+
+
+def add_form(long):
+    long = long.copy()
+    overall = rolling_prev(long, "team", FORM_COLS)
+    venue = rolling_prev(long, ["team", "is_home"], FORM_COLS)
+    long[[f"form_{c}" for c in FORM_COLS]] = overall.to_numpy()
+    long[[f"form_venue_{c}" for c in FORM_COLS]] = venue.to_numpy()
+    return long
+
 
 if __name__ == "__main__":
     long = to_long(pd.read_parquet(CLEAN))
