@@ -103,6 +103,24 @@ def add_shots(long):
     return long
 
 
+TEAM_COLS = [f"form_{c}" for c in FORM_COLS] + [f"form_venue_{c}" for c in FORM_COLS] \
+          + [f"roll_{c}" for c in SHOT_COLS]
+
+
+def to_wide(long, cols):
+    """Dos filas por partido -> una, con prefijos home_ / away_."""
+    home = long[long["is_home"] == 1].set_index("match_id")[cols].add_prefix("home_")
+    away = long[long["is_home"] == 0].set_index("match_id")[cols].add_prefix("away_")
+    return home.join(away)
+
+
+def add_diffs(wide, cols=TEAM_COLS):
+    wide = wide.copy()
+    for c in cols:
+        wide[f"diff_{c}"] = wide[f"home_{c}"] - wide[f"away_{c}"]
+    return wide
+
+
 if __name__ == "__main__":
     long = to_long(pd.read_parquet(CLEAN))
     print(long.head(10))
