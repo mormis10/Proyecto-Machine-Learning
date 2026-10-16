@@ -66,7 +66,6 @@ if __name__ == "__main__":
     plot_resultados_por_temporada(m)
     plot_victoria_vs_elo(feats)
     corr = plot_correlacion(feats)
-    # pares muy correlacionados, para comentar en el informe
     pares = corr.where(np.triu(np.ones(corr.shape, bool), 1)).stack()
     print(pares[pares.abs() > 0.7].sort_values(key=abs, ascending=False).round(2).to_string())
     print(f"Figuras en {FIG.relative_to(ROOT)}")

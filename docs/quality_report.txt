@@ -1,0 +1,71 @@
+
+== 1) Faltantes en columnas FUENTE de tiros (% por era) ==
+SeasonStart  93/94-99/00 (burn-in)  00/01-09/10  10/11-19/20  20/21-25/26
+HS                           100.0          0.0          0.0          0.0
+AS                           100.0          0.0          0.0          0.0
+HST                          100.0          0.0          0.0          0.0
+AST                          100.0          0.0          0.0          0.0
+
+== 2) Faltantes en features ANTES de imputar (% por era) ==
+SeasonStart              93/94-99/00 (burn-in)  00/01-09/10  10/11-19/20  20/21-25/26
+elo_diff                                  0.00         0.00         0.00         0.00
+diff_form_points                          0.78         0.26         0.16         0.09
+diff_form_gf                              0.78         0.26         0.16         0.09
+diff_form_ga                              0.78         0.26         0.16         0.09
+diff_form_venue_points                    1.56         0.53         0.32         0.18
+diff_form_venue_gf                        1.56         0.53         0.32         0.18
+diff_form_venue_ga                        1.56         0.53         0.32         0.18
+diff_roll_shots_for                     100.00         0.66         0.18         0.13
+diff_roll_shots_against                 100.00         0.66         0.18         0.13
+diff_roll_sot_for                       100.00         0.66         0.18         0.13
+diff_roll_sot_against                   100.00         0.66         0.18         0.13
+home_pocos_partidos                       0.00         0.00         0.00         0.00
+away_pocos_partidos                       0.00         0.00         0.00         0.00
+
+== 3) Faltantes en features FINALES (% por era) ==
+SeasonStart              93/94-99/00 (burn-in)  00/01-09/10  10/11-19/20  20/21-25/26
+elo_diff                                   NaN          0.0          0.0          0.0
+diff_form_points                           NaN          0.0          0.0          0.0
+diff_form_gf                               NaN          0.0          0.0          0.0
+diff_form_ga                               NaN          0.0          0.0          0.0
+diff_form_venue_points                     NaN          0.0          0.0          0.0
+diff_form_venue_gf                         NaN          0.0          0.0          0.0
+diff_form_venue_ga                         NaN          0.0          0.0          0.0
+diff_roll_shots_for                        NaN          0.0          0.0          0.0
+diff_roll_shots_against                    NaN          0.0          0.0          0.0
+diff_roll_sot_for                          NaN          0.0          0.0          0.0
+diff_roll_sot_against                      NaN          0.0          0.0          0.0
+home_pocos_partidos                        NaN          0.0          0.0          0.0
+away_pocos_partidos                        NaN          0.0          0.0          0.0
+
+== 4) Partidos: 9880 desde 2000/01 -> 9871 en features (descartados: 9) ==
+
+== 5) Distribución de clases por temporada (features finales) ==
+FTR        H    D    A   H_%   D_%   A_%  partidos
+Season                                            
+2000/01  178   99   94  48.0  26.7  25.3       371
+2001/02  165  101  114  43.4  26.6  30.0       380
+2002/03  187   90  103  49.2  23.7  27.1       380
+2003/04  167  108  105  43.9  28.4  27.6       380
+2004/05  173  110   97  45.5  28.9  25.5       380
+2005/06  192   77  111  50.5  20.3  29.2       380
+2006/07  182   98  100  47.9  25.8  26.3       380
+2007/08  176  100  104  46.3  26.3  27.4       380
+2008/09  173   97  110  45.5  25.5  28.9       380
+2009/10  193   96   91  50.8  25.3  23.9       380
+2010/11  179  111   90  47.1  29.2  23.7       380
+2011/12  171   93  116  45.0  24.5  30.5       380
+2012/13  166  108  106  43.7  28.4  27.9       380
+2013/14  179   78  123  47.1  20.5  32.4       380
+2014/15  172   93  115  45.3  24.5  30.3       380
+2015/16  157  107  116  41.3  28.2  30.5       380
+2016/17  187   84  109  49.2  22.1  28.7       380
+2017/18  173   99  108  45.5  26.1  28.4       380
+2018/19  181   71  128  47.6  18.7  33.7       380
+2019/20  172   92  116  45.3  24.2  30.5       380
+2020/21  144   83  153  37.9  21.8  40.3       380
+2021/22  163   88  129  42.9  23.2  33.9       380
+2022/23  184   87  109  48.4  22.9  28.7       380
+2023/24  175   82  123  46.1  21.6  32.4       380
+2024/25  155   93  132  40.8  24.5  34.7       380
+2025/26  162  104  114  42.6  27.4  30.0       380
