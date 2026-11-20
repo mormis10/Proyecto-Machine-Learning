@@ -5,6 +5,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 CLEAN = ROOT / "data/interim/matches_clean.parquet"
+EN_CURSO = {"2026/27"}
 
 
 @pytest.fixture(scope="module")
@@ -15,7 +16,8 @@ def m():
 def test_partidos_por_temporada(m):
     conteo = m.groupby("Season").size()
     esperado = {"1993/94": 462, "1994/95": 462}
-    raros = {s: n for s, n in conteo.items() if n != esperado.get(s, 380)}
+    raros = {s: n for s, n in conteo.items()
+             if (n > 380 if s in EN_CURSO else n != esperado.get(s, 380))}
     assert not raros, f"Temporadas con conteo inesperado: {raros}"
 
 

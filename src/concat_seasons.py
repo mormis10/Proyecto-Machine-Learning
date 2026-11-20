@@ -21,11 +21,13 @@ def parse_dates(s):
         raise ValueError(f"Fechas con formato desconocido: {bad.unique()[:5]}")
     return out
 
+COLS = ["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", "HTHG", "HTAG", "HTR", "Referee",
+        "HS", "AS", "HST", "AST", "HF", "AF", "HC", "AC", "HY", "AY", "HR", "AR"]
 
 frames = []
 for p in sorted(RAW.glob("season-*.csv")):
     df = pd.read_csv(p, encoding="latin-1")
-    df = df.dropna(how="all").loc[:, ~df.columns.str.startswith("Unnamed")]
+    df = df.dropna(how="all").reindex(columns=COLS)
     df["Date"] = parse_dates(df["Date"].astype(str).str.strip())
     for col in ["HomeTeam", "AwayTeam"]:
         df[col] = df[col].map(normalize_team)

@@ -1,16 +1,18 @@
-EQUIPOS VÁLIDOS - Premier League 2025/26
-(nombres exactos que aceptan src/predict.py y src/demo.py)
+EQUIPOS VÁLIDOS - Premier League 2026/27
+(nombres exactos que acepta src/predict.py; datos hasta el 08/11/2026)
 
 Arsenal
 Aston Villa
 Bournemouth
 Brentford
 Brighton
-Burnley
 Chelsea
+Coventry
 Crystal Palace
 Everton
 Fulham
+Hull
+Ipswich
 Leeds
 Liverpool
 Man City
@@ -19,8 +21,10 @@ Newcastle
 Nott'm Forest
 Sunderland
 Tottenham
-West Ham
-Wolves
+
+Cambios respecto a 2025/26:
+  Ascendieron:  Coventry, Hull, Ipswich
+  Descendieron: Burnley, West Ham, Wolves  (predict.py ya no los acepta)
 
 ALIAS ACEPTADOS (se convierten solos con team_names.py)
 Manchester City     -> Man City
@@ -32,6 +36,8 @@ REGLAS
 - Nombres con espacios o apóstrofo van entre comillas DOBLES:
       "Man City"   "Nott'm Forest"   "Aston Villa"
 - Primero va el LOCAL y después el VISITANTE.
+- demo.py es distinto: muestra las temporadas de prueba 2020/21-2025/26,
+  así que ahí sí sirven equipos como Burnley, West Ham o Wolves.
 
 
 COMANDOS LISTOS PARA LA PRESENTACIÓN (desde la raíz del repo, con el .venv activado)
@@ -46,6 +52,7 @@ python src/demo.py --fecha 18/05/2026
 python src/predict.py Arsenal "Man City"
 python src/predict.py Liverpool "Man United"
 python src/predict.py Chelsea Tottenham
-python src/predict.py Burnley Liverpool
-python src/predict.py "Nott'm Forest" Newcastle
+python src/predict.py Ipswich Liverpool
+python src/predict.py Bournemouth "Nott'm Forest"
+python src/predict.py Coventry Hull
 python src/predict.py "Aston Villa" Arsenal
