@@ -1,0 +1,51 @@
+EQUIPOS VÁLIDOS - Premier League 2025/26
+(nombres exactos que aceptan src/predict.py y src/demo.py)
+
+Arsenal
+Aston Villa
+Bournemouth
+Brentford
+Brighton
+Burnley
+Chelsea
+Crystal Palace
+Everton
+Fulham
+Leeds
+Liverpool
+Man City
+Man United
+Newcastle
+Nott'm Forest
+Sunderland
+Tottenham
+West Ham
+Wolves
+
+ALIAS ACEPTADOS (se convierten solos con team_names.py)
+Manchester City     -> Man City
+Manchester United   -> Man United
+Nottingham Forest   -> Nott'm Forest
+
+REGLAS
+- Mayúsculas y espacios tal cual aparecen arriba.
+- Nombres con espacios o apóstrofo van entre comillas DOBLES:
+      "Man City"   "Nott'm Forest"   "Aston Villa"
+- Primero va el LOCAL y después el VISITANTE.
+
+
+COMANDOS LISTOS PARA LA PRESENTACIÓN (desde la raíz del repo, con el .venv activado)
+
+1) Validación con partidos reales (instantáneo)
+python src/demo.py
+python src/demo.py --equipo Arsenal -n 3
+python src/demo.py --equipo "Man City" -n 5
+python src/demo.py --fecha 18/05/2026
+
+2) Predicción de partidos nuevos (~50 s cada uno)
+python src/predict.py Arsenal "Man City"
+python src/predict.py Liverpool "Man United"
+python src/predict.py Chelsea Tottenham
+python src/predict.py Burnley Liverpool
+python src/predict.py "Nott'm Forest" Newcastle
+python src/predict.py "Aston Villa" Arsenal
